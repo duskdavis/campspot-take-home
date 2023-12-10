@@ -1,6 +1,7 @@
 export default class HomePage {
     
-    static url = 'https://development-9-prototype.campspot.com/';
+    // static url = 'https://development-9-prototype.campspot.com/';
+    static url = 'https://www.campspot.com';
 
     static elements= {
         homeHeader: '.home-hero-search-heading',
