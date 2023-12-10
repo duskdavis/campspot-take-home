@@ -9,14 +9,4 @@ export default class HomePage {
         checkOutInputField: '.app-aggredator-checkout-date',
         searchButton: '.home-hero-search-form-submit-button',
     };
-
-    clickOnSignin() {
-        this.elements.loginBtn().click()
-    };
-
-    informationInputSearchFlow(location, inDate, outDate) {
-        this.locationInputField.type(location);
-        this.checkInInputField.select(inDate);
-        this.checkOutInputField.select(outDate);
-    };
 };

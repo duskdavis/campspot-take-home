@@ -16,7 +16,7 @@ describe('Home Page tests', () => {
     })
 
     it('When entering check in and check out dates, I expect search results to filter availability by date.', { tags: '@Critical'}, () => {
-        homePage.informationInputSearchFlow(location, checkInDate, checkOutDate);
+        informationInputSearchFlow(location, checkInDate, checkOutDate);
         cy.get(homePage.elements.searchButton).click().then(() => {
         cy.get(resultsPage.elements.resultsHeader).should('contain', 'Campgrounds');
             // next, to verify results are within the searched date time, here I would adjust the dateTime verify the
@@ -27,13 +27,13 @@ describe('Home Page tests', () => {
     it('Search starts when I click “Search”.', () => {
         // here I extruded the cURL from the Network tab, then pasted it into Postman to retrieve the API date for this test
         cy.intercept('GET', searchApiUrl).as('searchLoading');
-        homePage.informationInputSearchFlow(location, checkInDate, checkOutDate).then(() => {
+        informationInputSearchFlow(location, checkInDate, checkOutDate).then(() => {
             cy.wait('@pageLoading').its('response.statusCode').should('eq', 200);
         });
     });
     
     it('Search results should display available campgrounds that match the criteria entered.', () => {
-        homePage.informationInputSearchFlow(location, checkInDate, checkOutDate).then(() => {
+       informationInputSearchFlow(location, checkInDate, checkOutDate).then(() => {
             expect(cy.get(resultsPage.elements.searchResults)).to.exist;            
         });
     });
