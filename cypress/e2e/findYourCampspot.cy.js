@@ -13,7 +13,7 @@ describe('Home Page tests', () => {
         cy.wait(2000);
     })
 
-    it.only('When entering check in and check out dates, I expect search results to filter availability by date.', { tags: '@Critical'}, () => {
+    it('When entering check in and check out dates, I expect search results to filter availability by date.', { tags: '@Critical'}, () => {
         cy.informationInputSearchFlow(location);
         cy.get(homePage.elements.searchButton).click( {timeout: 5000} );
         cy.get(resultsPage.elements.resultsHeader, { timeout: 10000 }).should('be.visible'); //('contain', 'Campgrounds', { timeout: 10000 });
